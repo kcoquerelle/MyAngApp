@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Picker, Button } from "react-native";
+import { View, Picker, Button } from "react-native";
 import { connect } from "react-redux";
 import { styles } from "./ResearchStyles";
 import { search } from "./../../Actions/FilterActions";
@@ -17,7 +17,7 @@ class ResearchScreen extends Component {
   }
 
   onPickerChange(itemValue) {
-    this.setState({ category: itemValue });
+    if (this.state.category !== "0") this.setState({ category: itemValue });
   }
 
   onSubmit() {
@@ -28,9 +28,10 @@ class ResearchScreen extends Component {
     return (
       <View>
         <Picker
-          selectedValue={this.state.language}
+          selectedValue={this.state.category}
           style={styles.picker}
           onValueChange={this.onPickerChange}>
+          <Picker.Item label="Please select a category..." value="0" />
           <Picker.Item label="Sports" value="sports" />
           <Picker.Item label="Jeux vidéo" value="jeux" />
           <Picker.Item label="Politique" value="politique" />
@@ -42,7 +43,7 @@ class ResearchScreen extends Component {
 }
 
 const mapStateToProps = state => {
-    return state.filters
+    return state.FilterReducer.filters
 }
 
 const mapDispatchToProps = (dispatch) => {
