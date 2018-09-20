@@ -23,7 +23,7 @@ class ArticleListScreen extends Component {
     }
   
     renderItem = ({item}) => {
-        return <View style={styles.rowActu}>
+        return <View style={styles.rowActu} keys={item.title}>
             <Text style={styles.titleH2}>{item.title}</Text>
             <Text style={styles.cat}>{item.cat}</Text>    
             <Image
