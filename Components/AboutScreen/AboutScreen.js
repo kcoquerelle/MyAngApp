@@ -17,27 +17,40 @@ export default class AboutScreen extends Component {
     }
 
     componentWillMount(){
-        song= new SoundPlayer('../../Sound/tuturu.mp3', SoundPlayer.MAIN_BUNDLE, (error) =>{
-            if(error)
-            ToastAndroid.show('Error when init SoundPlayer :(((', ToastAndroid.SHORT);
+        // song= new SoundPlayer('tuturu.mp3', SoundPlayer.MAIN_BUNDLE, (error) =>{
+        //     if(error)
+        //     ToastAndroid.show('Error when init SoundPlayer :(((', ToastAndroid.SHORT);
 
-        });
+        // });
     }
 
     onPressButtonPlay(){
-        if(song != null){
-            song.play((success) =>{
-                if(!success)
-                ToastAndroid.show('Error when play SoundPlayer :(((', ToastAndroid.SHORT);
-            });
-        }
+        song= new SoundPlayer('tuturu.mp3', SoundPlayer.MAIN_BUNDLE, (error) =>{
+            if(error)
+            ToastAndroid.show('Error when init SoundPlayer :(((', ToastAndroid.SHORT);
+            
+            else{
+                (song != null)
+                    song.play((success) =>{
+                        if(!success)
+                        ToastAndroid.show('Error when play SoundPlayer :(((', ToastAndroid.SHORT);
+                    });
+                   
+            }
+        });
+        // if(song != null){
+        //     song.play((success) =>{
+        //         if(!success)
+        //         ToastAndroid.show('Error when play SoundPlayer :(((', ToastAndroid.SHORT);
+        //     });
+        // }
     }
 
     onPressButtonPause(){
         if(song != null){
             if(this.state.pause)  //play resume
                 song.play((success) => {
-                    if(!sucess)
+                    if(!success)
                         ToastAndroid.show('Error when play SoundPlayer :(((', ToastAndroid.SHORT);
                 });
             else song.pause();     
@@ -59,7 +72,7 @@ export default class AboutScreen extends Component {
             <Text>YOLO</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.onPressButtonPause.bind(this)}>
-            <Text>(this.state.pause ? 'RESUME' : 'STOP')</Text>
+            <Text>{this.state.pause ? 'RESUME' : 'STOP'}</Text>
             </TouchableOpacity> 
           </View>
         );
