@@ -22,6 +22,7 @@ class ResearchScreen extends Component {
 
   onSubmit() {
     this.props.search({ category: this.state.category });
+    this.props.navigation.navigate("Home");
   }
 
   render() {

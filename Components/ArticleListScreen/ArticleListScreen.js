@@ -14,7 +14,7 @@ class ArticleListScreen extends Component {
 
     getFilteredData = () => {
         const { filters } = this.props;
-        if (Object.keys(filters).length !== 0 || (filters.category !== 'all' && filters.cat === '0')) {
+        if (Object.keys(filters).length !== 0 || (filters.category !== 'all' && filters.category === '0')) {
             return articles.articles.filter((item) => {
                 if (item.cat === filters.category) return item;
             });
