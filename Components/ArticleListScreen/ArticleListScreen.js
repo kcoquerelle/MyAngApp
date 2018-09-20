@@ -1,17 +1,25 @@
 import React, {Component} from 'react';
 import {Platform, Text, View, Image, FlatList} from 'react-native';
 import { styles } from './style';
+import { connect } from 'react-redux';
 
-const data = require('../../Articles.json');
+const articles = require('../../Articles.json');
 
-export default class ArticleListScreen extends Component {
+class ArticleListScreen extends Component {
     
     constructor (props) {
-
         super(props);
+        this.data = this.getFilteredData();
+    }
 
-        this.state = {
+    getFilteredData = () => {
+        const { filters } = this.props;
+        if (Object.keys(filters).length !== 0 || (filters.category !== 'all' && filters.cat === '0')) {
+            return articles.articles.filter((item) => {
+                if (item.cat === filters.category) return item;
+            });
         }
+        return articles.articles;
     }
   
     renderItem = ({item}) => {
@@ -34,10 +42,18 @@ export default class ArticleListScreen extends Component {
             
             <FlatList
             
-                data = {data.articles}
+                data = {this.data}
                 renderItem= {this.renderItem}
             />
           </View>
         );
       }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        filters: state.FilterReducer.filters
+    };
+};
+
+export default connect(mapStateToProps)(ArticleListScreen);
