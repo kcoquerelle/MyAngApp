@@ -32,6 +32,7 @@ class ResearchScreen extends Component {
           style={styles.picker}
           onValueChange={this.onPickerChange}>
           <Picker.Item label="Please select a category..." value="0" />
+          <Picker.Item label="Tous les articles" value="all" />
           <Picker.Item label="Sports" value="sports" />
           <Picker.Item label="Jeux vidéo" value="jeux" />
           <Picker.Item label="Politique" value="politique" />
