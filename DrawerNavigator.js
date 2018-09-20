@@ -6,14 +6,16 @@ import FilterReducer from './Reducers/FilterReducer'
 import ArticlesList from './Components/ArticleListScreen/ArticleListScreen'
 import Research from './Components/ResearchScreen/ResearchScreen'
 import About from './Components/AboutScreen/AboutScreen'
+import {StackNav} from './Components/ArticleListScreen/StackNavigator'
+import ArticleReducer from './Reducers/ArticleReducer'
 
-const Reducers = combineReducers({FilterReducer}); //Pour utiliser plusieurs Reducers
+const Reducers = combineReducers({FilterReducer, ArticleReducer}); //Pour utiliser plusieurs Reducers
 
 export const store = createStore(Reducers);
 
 const MyStack = createDrawerNavigator({
   Home: {
-    screen: ArticlesList,
+    screen: StackNav,
   },
   Filter:{
     screen: Research,
