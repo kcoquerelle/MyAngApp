@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View,TouchableOpacity, ToastAndroid} from 'react-native';
 
 
-import Sound from 'react-native-sound';
+// import Sound from 'react-native-sound';
 
 // const song = new Sound('tuturu.mp3', SoundPlayer.MAIN_BUNDLE, (error) =>{
 //         if(error) ToastAndroid.show('Error to load the sound :' + error, ToastAndroid.LONG);
@@ -13,7 +13,7 @@ export default class AboutScreen extends Component {
 
     constructor(props){
         super(props);
-        Sound.setCategory('Playback');
+        // Sound.setCategory('Playback');
         this.state ={
             pause: false,
         };
@@ -30,12 +30,12 @@ export default class AboutScreen extends Component {
     onPressButtonPlay(){
         // this.setState({song : 
         // });
-        this.song = new Sound('tuturu.mp3', Sound.MAIN_BUNDLE, (error) => {
-            ToastAndroid.show(error, ToastAndroid.SHORT);
-            if(error) ToastAndroid.show('Error to load the sound ', ToastAndroid.LONG);
-            else ToastAndroid.show('Duration : '+ song.getDuration() + "; num of channels : " + song.getNumberOfChannels, ToastAndroid.LONG);
-        });
-        ToastAndroid.show('' + this.song.getNumberOfChannels(), ToastAndroid.SHORT);
+        // this.song = new Sound('tuturu.mp3', Sound.MAIN_BUNDLE, (error) => {
+        //     ToastAndroid.show(error, ToastAndroid.SHORT);
+        //     if(error) ToastAndroid.show('Error to load the sound ', ToastAndroid.LONG);
+        //     else ToastAndroid.show('Duration : '+ song.getDuration() + "; num of channels : " + song.getNumberOfChannels, ToastAndroid.LONG);
+        // });
+        // ToastAndroid.show('' + this.song.getNumberOfChannels(), ToastAndroid.SHORT);
         // song= new SoundPlayer('tuturu.mp3', SoundPlayer.MAIN_BUNDLE, (error) =>{
         //     if(error)
         //     ToastAndroid.show('Error when init SoundPlayer :(((', ToastAndroid.SHORT);
@@ -58,16 +58,16 @@ export default class AboutScreen extends Component {
     }
 
     onPressButtonPause(){
-        if(song != null){
-            if(this.state.pause)  //play resume
-                song.play((success) => {
-                    if(!success)
-                        ToastAndroid.show('Error when play SoundPlayer :(((', ToastAndroid.SHORT);
-                });
-            else song.pause();     
+        // if(song != null){
+        //     if(this.state.pause)  //play resume
+        //         song.play((success) => {
+        //             if(!success)
+        //                 ToastAndroid.show('Error when play SoundPlayer :(((', ToastAndroid.SHORT);
+        //         });
+        //     else song.pause();     
 
-            this.setState({pause: !this.state.pause});
-        }
+        //     this.setState({pause: !this.state.pause});
+        // }
     }
 
     render() {
