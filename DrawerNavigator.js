@@ -1,25 +1,29 @@
 import {createDrawerNavigator} from 'react-navigation'
 import { connect, Provider } from 'react-redux'
 import {createStore, combineReducers} from 'redux'
-import Test from './Components/test/Test'
-import About from './Components/AboutScreen/AboutScreen'
 import {reduxifyNavigator, createReactNavigationReduxMiddleware} from 'react-navigation-redux-helpers'
-import Reducer from './Reducers/ReducerTest'
+import FilterReducer from './Reducers/FilterReducer'
+import ArticlesList from './Components/ArticleListScreen/ArticleListScreen'
+import Research from './Components/ResearchScreen/ResearchScreen'
+import About from './Components/AboutScreen/AboutScreen'
 
-const Reducers = combineReducers({Reducer}); //Pour utiliser plusieurs Reducers
+const Reducers = combineReducers({FilterReducer}); //Pour utiliser plusieurs Reducers
 
 export const store = createStore(Reducers);
 
 const MyStack = createDrawerNavigator({
   Home: {
-    screen: Test,
+    screen: ArticlesList,
   },
   Filter:{
-    screen: Test,
+    screen: Research,
   },
   About:{
     screen: About,
   },
+},
+{
+  initialRouteName: "Home"
 });
 
 export const middleware = createReactNavigationReduxMiddleware("root", state => state.navigation); // Pour connecter toutes les pages de react-navigation a redux grace au Middleware
