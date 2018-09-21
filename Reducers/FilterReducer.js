@@ -1,7 +1,9 @@
 import { SEARCH } from "./../Actions/FilterActions";
 
 const initialState = {
-  filters: {}
+  filters: {
+    category: 'all'
+  }
 };
 
 export default (state = initialState, action) => {
