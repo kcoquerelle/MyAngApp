@@ -50,7 +50,7 @@ class ArticleListScreen extends Component {
             <Text style={styles.titleH1}>Liste des actualités</Text>
             
             <FlatList
-            
+                keyExtractor={(item) => item.title}
                 data = {this.data}
                 renderItem= {this.renderItem}
             />

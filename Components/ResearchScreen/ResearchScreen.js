@@ -9,7 +9,7 @@ class ResearchScreen extends Component {
     super(props);
 
     this.state = {
-        category: ""
+        category: "all"
     };
 
     this.onPickerChange = this.onPickerChange.bind(this);
@@ -27,12 +27,11 @@ class ResearchScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Picker
           selectedValue={this.state.category}
           style={styles.picker}
           onValueChange={this.onPickerChange}>
-          <Picker.Item label="Please select a category..." value="0" />
           <Picker.Item label="Tous les articles" value="all" />
           <Picker.Item label="Sports" value="sports" />
           <Picker.Item label="Jeux vidéo" value="jeux" />
