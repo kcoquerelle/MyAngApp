@@ -62,3 +62,11 @@ const styles = StyleSheet.create({
     borderRadius: cssDefaultValue
   }
 });
+
+// const mapStateToProps = (state) => {
+//   return {
+//       filters: state.FilterReducer.filters
+//   };
+// };
+
+// export default connect(mapStateToProps)(ArticleDetailsScreen);

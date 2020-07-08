@@ -13,9 +13,6 @@ export default class AboutScreen extends Component {
         };
     }
 
-    componentDidMount(){
-    }
-
     onPressButtonPlay(){
         SoundPlayer.playSoundFile('tuturu', 'mp3');
     }
@@ -35,7 +32,7 @@ export default class AboutScreen extends Component {
             <Text style={styles.name}>- Lempereur Kilian</Text>
             <Text style={styles.name}>- Grandpierre Adrien</Text>
             <Text style={styles.name}>- Aubert Alexis</Text>
-            <TouchableOpacity style={styles.button} onPress={this.onPressButtonPlay.bind(this)}>
+            <TouchableOpacity style={styles.button} onPress={this.onPressButtonPlay}>
                 <Text style={{color: 'white'}}>YOLO</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={this.onPressButtonPause.bind(this)}>
